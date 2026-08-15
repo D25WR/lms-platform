@@ -1,0 +1,11 @@
+package com.divya.lms.repository;
+
+import com.divya.lms.entity.LessonProgress;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
+
+public interface LessonProgressRepository extends JpaRepository<LessonProgress, Long> {
+    List<LessonProgress> findByStudentIdAndLessonCourseId(Long studentId, Long courseId);
+    Optional<LessonProgress> findByStudentIdAndLessonId(Long studentId, Long lessonId);
+}
